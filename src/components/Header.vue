@@ -14,12 +14,13 @@
                 </ul>
             </div>
             <div class="head-portrait">
-                <div href="" >
+                <div @click="loginOrsign">
                     <img v-if="$store.state.signing" src="../../public/img/head-portrait.jpg" alt="">
-                    <div v-else class="signing" @click="login">
+                    <div v-else class="signing" >
                       登录
                     </div>
                 </div>
+                <!-- <router-link :to=this.$store.state.username></router-link> -->
             </div>
       </div>
   </div>
@@ -51,8 +52,14 @@ export default {
           this.topNavDisplay = !this.topNavDisplay
         }
       },
-      login(){
-         this.$router.push('/login').catch(ery =>ery)
+      loginOrsign(){
+        if(this.$store.state.signing == false){
+          this.$router.push('/login').catch(ery =>ery)
+        }else{
+          // this.$router.push(window.localStorage.username)
+          this.$router.push(this.$store.state.username)
+        }
+         
       }
     }
 }
@@ -133,7 +140,7 @@ export default {
   top: 0px;
   float: right;
   right: 0;
-  padding-right: 5%;
+  margin-right: 5%;
   cursor: pointer;
 }
 

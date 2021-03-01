@@ -13,5 +13,19 @@
   body{
         background-color: #f5f6f7;
   }
+  input{
+    outline: none;
+  }
+  button{
+    outline: none;
+    cursor: pointer;
+  }
 
-  
+  .flex{
+    display: flex;
+    margin: 0 20%;
+    flex-wrap:wrap;
+    justify-content:space-between;
+  }
+
+   

@@ -1,0 +1,198 @@
+{
+    "1":[
+        {
+        "name":"小米11",
+        "price":3999,
+        "img":"../mishop/image/NavMenu/mi11.webp"
+    },
+    {
+        "name":"Redmi K30s 至尊纪念版",
+        "price":2599,
+        "img":"../mishop/image/NavMenu/mi10ultra.webp"
+    },
+    {
+        "name":"小米10",
+        "price":3399,
+        "img":"../mishop/image/NavMenu/mi10.webp"
+    },
+    {
+        "name":"小米10 青春版 5G",
+        "price":2099,
+        "img":"../mishop/image/NavMenu/mi10youth.webp"
+    },
+    {
+        "name":"小米MIX Alpha",
+        "price":19999,
+        "img":"../mishop/image/NavMenu/小米MIX Alpha.webp"
+    }
+    ],
+    
+    "2":[
+        {
+            "name":"Redmi Note9系列",
+            "price":999,
+            "img":"../mishop/image/NavMenu/Redmi Note9系列.webp"
+        },{
+            "name":"Redmi K30s 至尊纪念版",
+            "price":2599,
+            "img":"../mishop/image/NavMenu/mi10ultra.webp"
+        },{
+            "name":"Redmi K30 至尊纪念版",
+            "price":1999,
+            "img":"../mishop/image/NavMenu/Redmi K30Ultra.webp"
+        },{
+            "name":"Redmi 9A",
+            "price":999,
+            "img":"../mishop/image/NavMenu/Redmi9A.webp"
+        },{
+            "name":"Redmi K30系列",
+            "price":1799,
+            "img":"../mishop/image/NavMenu/RedmiK30.webp"
+        },{
+            "name":"Redmi 10x",
+            "price":999,
+            "img":"../mishop/image/NavMenu/Redmi10X.webp"
+        }
+    ],
+
+    "3":[
+        {
+            "name":"小米电视大师 82英寸至尊纪念版",
+            "price":49999,
+            "img":"../mishop/image/NavMenu/TV82plus.webp"
+        },{
+            "name":"小米电视大师 82英寸",
+            "price":9999,
+            "img":"../mishop/image/NavMenu/TV82.webp"
+        },{
+            "name":"小米透明电视",
+            "price":49999,
+            "img":"../mishop/image/NavMenu/transparentTV.webp"
+        },{
+            "name":"小米电视 大师 65英寸OLED版",
+            "price":9999,
+            "img":"../mishop/image/NavMenu/TV65.webp"
+        },{
+            "name":"Redmi 智能电视 MAX 98'",
+            "price":19999,
+            "img":"../mishop/image/NavMenu/Redmi98.webp"
+        },{
+            "name":"小米电视4A 60英寸",
+            "price":2599,
+            "img":"../mishop/image/NavMenu/mi4A.webp"
+        }
+    ],
+
+    "4":[
+        {
+            "name":"Redmi Note9系列",
+            "price":999,
+            "img":"../mishop/image/NavMenu/Redmi Note9系列.webp"
+        },{
+            "name":"Redmi K30s 至尊纪念版",
+            "price":2599,
+            "img":"../mishop/image/NavMenu/mi10ultra.webp"
+        },{
+            "name":"Redmi K30 至尊纪念版",
+            "price":1999,
+            "img":"../mishop/image/NavMenu/Redmi K30Ultra.webp"
+        },{
+            "name":"Redmi 9A",
+            "price":999,
+            "img":"../mishop/image/NavMenu/Redmi9A.webp"
+        },{
+            "name":"Redmi K30系列",
+            "price":1799,
+            "img":"../mishop/image/NavMenu/RedmiK30.webp"
+        },{
+            "name":"Redmi 10x",
+            "price":999,
+            "img":"../mishop/image/NavMenu/Redmi10X.webp"
+        }
+    ],
+
+    "5":[
+        {
+            "name":"Redmi G游戏本",
+            "price":"",
+            "img":"../mishop/image/NavMenu/RedmiG.webp"
+        },{
+            "name":"RedmiBook 16",
+            "price":4999,
+            "img":"../mishop/image/NavMenu/RedmiBook16.webp"
+        },{
+            "name":"RedmiBook 14",
+            "price":4999,
+            "img":"../mishop/image/NavMenu/RedmiBook14.webp"
+        },{
+            "name":"Pro 15.6' 2020款",
+            "price":6799,
+            "img":"../mishop/image/NavMenu/Pro156.png"
+        },{
+            "name":"RedmiBook Air 13",
+            "price":4499,
+            "img":"../mishop/image/NavMenu/Air13.webp"
+        },{
+            "name":"显示器",
+            "price":2399,
+            "img":"../mishop/image/NavMenu/monitor.webp"
+        }
+    ],
+
+    "6":[
+        {
+        "name":"小米11",
+        "price":3999,
+        "img":"../mishop/image/NavMenu/mi11.webp"
+    },
+    {
+        "name":"Redmi K30s 至尊纪念版",
+        "price":2599,
+        "img":"../mishop/image/NavMenu/mi10ultra.webp"
+    },
+    {
+        "name":"小米10",
+        "price":3399,
+        "img":"../mishop/image/NavMenu/mi10.webp"
+    },
+    {
+        "name":"小米10 青春版 5G",
+        "price":2099,
+        "img":"../mishop/image/NavMenu/mi10youth.webp"
+    },
+    {
+        "name":"小米MIX Alpha",
+        "price":19999,
+        "img":"../mishop/image/NavMenu/小米MIX Alpha.webp"
+    }
+    ],
+
+    "7":[
+        {
+            "name":"Redmi Note9系列",
+            "price":999,
+            "img":"../mishop/image/NavMenu/Redmi Note9系列.webp"
+        },{
+            "name":"Redmi K30s 至尊纪念版",
+            "price":2599,
+            "img":"../mishop/image/NavMenu/mi10ultra.webp"
+        },{
+            "name":"Redmi K30 至尊纪念版",
+            "price":1999,
+            "img":"../mishop/image/NavMenu/Redmi K30Ultra.webp"
+        },{
+            "name":"Redmi 9A",
+            "price":999,
+            "img":"../mishop/image/NavMenu/Redmi9A.webp"
+        },{
+            "name":"Redmi K30系列",
+            "price":1799,
+            "img":"../mishop/image/NavMenu/RedmiK30.webp"
+        },{
+            "name":"Redmi 10x",
+            "price":999,
+            "img":"../mishop/image/NavMenu/Redmi10X.webp"
+        }
+    ]
+    
+}

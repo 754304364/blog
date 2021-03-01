@@ -16,13 +16,6 @@ export default {
 </script>
 
 <style>
-
-.flex{
-  display: flex;
-  margin: 0 20%;
-  flex-wrap:wrap;
-  justify-content:space-between;
-}
 .big{
   width: 40%;
   height: 200px;
@@ -33,8 +26,6 @@ export default {
 }
 .big:hover{
     transition: all .5s;
-    /* width: 43%;
-    height: 210px; */
     transform: scale(1.1,1.1)
   }
 

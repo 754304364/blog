@@ -12,9 +12,14 @@
 
 <script>
 import Header from './components/Header'
+
 export default{
   components:{
     Header
+  },
+  created(){
+    this.$store.state.signing = window.localStorage.signing
+    this.$store.state.username = window.localStorage.username
   }
 }
 </script>
