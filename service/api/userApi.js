@@ -10,9 +10,7 @@ conn.connect();
 // 登录接口
 router.post('/login',(req,res)=>{
 	const user = req.body;
-    console.log(user);
     const sel_username = $sql.user.select + " where username = " + user.username + "";
-	console.log(sel_username);
 	conn.query(sel_username, user.username, (error, results)=>{
 		if (error) {
 			throw error;
@@ -35,7 +33,6 @@ router.post('/add', (req, res) => {
 	const params = req.body;
 	const sel_sql = $sql.user.select + " where username = '" + params.username + "'";
 	const add_sql = $sql.user.add;
-	console.log(sel_sql);
 	
 	conn.query(sel_sql, params.username, (error, results) => {
 		if(error) {
@@ -56,10 +53,10 @@ router.post('/add', (req, res) => {
 	});
 });
 
-// 添加博客
-router.post('/addblog', (req, res) => {
+// 添加博客 js 分类
+router.post('/addjs', (req, res) => {
 	const params = req.body;
-	const add_sql = $sql.user.addblog;
+	const add_sql = $sql.user.addjs;
 	conn.query(add_sql, [params.blogName, params.blogTxt,params.blogTime], (err, rst) => {
 		if (err) {
 			console.log(err);
@@ -70,22 +67,20 @@ router.post('/addblog', (req, res) => {
 	});
 	
 });
-
-//获取博客
-// router.get('/selectjs',(res)=>{
-// 	const add_sql = $sql.user.selectjs;
-// 	conn.query(add_sql,function (err, result) {
-//         if(err){
-//           console.log('[SELECT ERROR] - ',err.message);
-//           return;
-//         }
-
-// 		res.send(result)
-//        console.log('--------------------------SELECT----------------------------');
-//        console.log(result);
-//        console.log('------------------------------------------------------------\n\n');  
-// });
-// });
+//读取博客 js  子分类
+router.post('/selectjsid', (req, res) => {
+	const params = req.body;
+	const add_sql = $sql.user.selectjs + " where id = " + params.id + "";
+	conn.query(add_sql,(err, result) => {
+		console.log(result);
+		if (err) {
+			console.log(err);
+		} else{
+			res.send(result); //  表示成功
+		}
+	});
+});
+// 读取博客 js 分类
 router.get('/selectjs',(req, res, next)=>{
 	const select = $sql.user.selectjs;
 	conn.query(select,(err,result) =>{
@@ -94,10 +89,85 @@ router.get('/selectjs',(req, res, next)=>{
 				return;
 			}
 			res.send(result)
-			console.log('--------------------------SELECT----------------------------');
-			console.log(result);
-			console.log('------------------------------------------------------------\n\n');  
 	})
 })
+
+
+// 添加博客 css 分类
+router.post('/addcss', (req, res) => {
+	const params = req.body;
+	const add_sql = $sql.user.addcss;
+	conn.query(add_sql, [params.blogName, params.blogTxt,params.blogTime], (err, rst) => {
+		if (err) {
+			console.log(err);
+		} else{
+			res.send("0"); // 0 表示成功
+		}
+	});
+	
+});
+// 读取博客 css 分类
+router.get('/selectcss',(req, res, next)=>{
+	const select = $sql.user.selectcss;
+	conn.query(select,(err,result) =>{
+		if(err){
+				console.log('[SELECT ERROR] - ',err.message);
+				return;
+			}
+			res.send(result)
+	})
+})
+router.post('/selectcssid', (req, res) => {
+	const params = req.body;
+	const add_sql = $sql.user.selectcss + " where id = " + params.id + "";
+	conn.query(add_sql,(err, result) => {
+		console.log(result);
+		if (err) {
+			console.log(err);
+		} else{
+			res.send(result); //  表示成功
+		}
+	});
+});
+
+
+// 添加博客 vue 分类
+router.post('/addvue', (req, res) => {
+	const params = req.body;
+	const add_sql = $sql.user.addvue;
+	conn.query(add_sql, [params.blogName, params.blogTxt,params.blogTime], (err, rst) => {
+		if (err) {
+			console.log(err);
+		} else{
+			console.log(rst);
+			res.send("0"); // 0 表示成功
+		}
+	});
+	
+});
+// 读取博客 vue 分类
+router.get('/selectvue',(req, res, next)=>{
+	const select = $sql.user.selectvue;
+	conn.query(select,(err,result) =>{
+		if(err){
+				console.log('[SELECT ERROR] - ',err.message);
+				return;
+			}
+			res.send(result)
+	})
+})
+//读取博客 vue  子分类
+router.post('/selectvueid', (req, res) => {
+	const params = req.body;
+	const add_sql = $sql.user.selectvue + " where id = " + params.id + "";
+	conn.query(add_sql,(err, result) => {
+		console.log(result);
+		if (err) {
+			console.log(err);
+		} else{
+			res.send(result); //  表示成功
+		}
+	});
+});
 
 module.exports = router;

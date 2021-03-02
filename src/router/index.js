@@ -6,7 +6,11 @@ Vue.use(VueRouter)
 
 const Home = () =>import('../views/Home')
 // const Home = () =>import('../components/HelloWorld')
+// const Js = () =>import('../views/js/Js')
 const Js = () =>import('../views/Js')
+const Jschild = () =>import('../views/js/jsChild')
+const Vuechild =()=>import('../views/vue/vuechild')
+const Csschild =()=>import('../views/css/csschild')
 const Css = () =>import('../views/Css')
 const Vues = () =>import('../views/Vue')
 const Login = ()=>import('../views/Login')
@@ -24,15 +28,27 @@ const routes = [
   },
   {
     path:"/js",
-    component:Js
+    component:Js,
+  },
+  {
+    path:"/js/:abc",
+    component:Jschild,
   },
   {
     path:"/css",
     component:Css
   },
   {
+    path:"/css/:abc",
+    component:Csschild,
+  },
+  {
     path:"/vue",
     component:Vues
+  },
+  {
+    path:"/vue/:abc",
+    component:Vuechild,
   },
   {
     path:"/login",

@@ -7,14 +7,19 @@
 <script>
 import Blogtxt from '../components/blogtxt/Blogtxt'
 export default{
-  name:"Css",
+  name:"Js",
   data(){
     return{
-      pagetype:"css"
+      pagetype:"js"
     }
   },
   components:{
     Blogtxt
   },
 }
+
 </script>
+
+<style>
+
+</style>

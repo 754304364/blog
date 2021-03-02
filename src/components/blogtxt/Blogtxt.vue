@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="width:100%">
       <div class="txt-name" >
       <div v-for="item in dataTxt" class="textli">
         <h3>{{item.name}}</h3>
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
 export default {
     name:"Blogtxt",
     data(){
@@ -45,6 +46,12 @@ export default {
         this.div[i]=document.createElement("div")
         this.div[i].innerHTML = this.blogTxt[i]
         this.container[i].appendChild(this.div[i])
+        // 给每个博客分类的首页展示的 博客 添加点击跳转
+        this.container[i].onclick=()=>{
+          // this.$router.push(this.cpagetype+"/"+this.dataTxt[i].id)
+          this.$router.push({path:this.cpagetype+"/"+this.dataTxt[i].id,
+                              query:{pageid:this.dataTxt[i].id} })
+        }
       }
         })
   }
@@ -52,15 +59,6 @@ export default {
 </script>
 
 <style>
-.txtContainer{
-  width: 100%;
-  text-align: left;
-  overflow: hidden;
-  min-height: 200px;
-  color: #000;
-  font-size: 16px;
-  background-color: rgba(66, 185, 131, .1);
-}
 .txt-name{
   font-size: 20px;
   color: #ff6700;
@@ -74,6 +72,16 @@ export default {
   background-color: #fff;
   border-left: 5px solid #42b983;
   border-radius: 10px;
+}
+.txtContainer{
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+  min-width: 200px;
+  min-height: 200px;
+  color: #000;
+  font-size: 16px;
+  background-color: rgba(66, 185, 131, .1);
 }
 @media screen and (max-width:480px) {
 .txt-name{

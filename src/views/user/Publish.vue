@@ -2,6 +2,11 @@
 <div class="pubish">
     <div>
         <input type="text" v-model="blogName" class="new-blog-name" placeholder="请输入文章名">
+        <select v-model="selectType">
+            <option value="js">js</option>
+            <option value="css">css</option>
+            <option value="vue">vue</option>
+        </select>
         <div>
             <input type="file" value="选择图片" accept="image/*" class="upload-img" @change="blogImg($event)">
         </div>
@@ -24,6 +29,7 @@ export default {
 name:"Publish",
 data(){
     return{
+        selectType:null,
         blogName:null,
         blogTxt:null,
         myDate:null,
@@ -34,24 +40,23 @@ methods:{
     // 添加图片
     blogImg(event) {
 　　　　 var file = event.target.files;
-console.log(file);
-　　　　  var reader = new FileReader();//读取文件
-　　　　      reader.readAsDataURL(file[0]);
-　　　　      reader.onload = function() {
-                var img = document.createElement("img");
-                var br =document.createElement("br");
-                let text = document.getElementById("text")
-                text.appendChild(img).src= reader.result;
+        console.log(file);
+　　　　 var reader = new FileReader();//读取文件
+　　　　 reader.readAsDataURL(file[0]);
+　　　　 reader.onload = function() {
+            var img = document.createElement("img");
+            var br =document.createElement("br");
+            let text = document.getElementById("text")
+            text.appendChild(img).src= reader.result;
             };
         },
     // 提交文章
     submitBlog(){
         this.myDate = new Date();
         this.blogText = document.getElementById("text").innerHTML
-        console.log(this.blogText);
         this.$axios({
 						method:'post',
-						url: 'http://127.0.0.1:3000/api/user/addblog',
+						url: 'http://127.0.0.1:3000/api/user/add'+this.selectType,
 						data: {
 							blogName: this.blogName,
 							blogTxt: this.blogText,

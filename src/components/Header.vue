@@ -8,8 +8,8 @@
             <div class="top-nav">
                 <ul>
                     <router-link to="/home" class="top-item" tag="li">首页</router-link> 
+                    <router-link to="/js" class="top-item" tag="li">JS</router-link> 
                     <router-link to="/css" class="top-item" tag="li">CSS</router-link> 
-                    <router-link to="/js" class="top-item" tag="li">JavaScript</router-link> 
                     <router-link to="/vue" class="top-item" tag="li">Vue</router-link> 
                 </ul>
             </div>
