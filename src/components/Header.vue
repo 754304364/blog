@@ -7,10 +7,10 @@
             </div>
             <div class="top-nav">
                 <ul>
-                    <router-link to="home" class="top-item" tag="li">首页</router-link> 
-                    <router-link to="css" class="top-item" tag="li">CSS</router-link> 
-                    <router-link to="js" class="top-item" tag="li">JavaScript</router-link> 
-                    <router-link to="vue" class="top-item" tag="li">Vue</router-link> 
+                    <router-link to="/home" class="top-item" tag="li">首页</router-link> 
+                    <router-link to="/css" class="top-item" tag="li">CSS</router-link> 
+                    <router-link to="/js" class="top-item" tag="li">JavaScript</router-link> 
+                    <router-link to="/vue" class="top-item" tag="li">Vue</router-link> 
                 </ul>
             </div>
             <div class="head-portrait">
@@ -56,8 +56,7 @@ export default {
         if(this.$store.state.signing == false){
           this.$router.push('/login').catch(ery =>ery)
         }else{
-          // this.$router.push(window.localStorage.username)
-          this.$router.push(this.$store.state.username)
+          this.$router.push('/'+this.$store.state.username).catch(ery =>ery)
         }
          
       }

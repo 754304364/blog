@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
   }
+
+
   a{
     color: #000;
     text-decoration: none;
@@ -22,10 +24,15 @@
   }
 
   .flex{
+    padding-top: 20px;
+    min-height: 100%;
     display: flex;
     margin: 0 20%;
     flex-wrap:wrap;
     justify-content:space-between;
   }
-
-   
+  @media screen and (max-width:480px){
+    .flex{
+      margin: 0 5%;
+    }
+  }

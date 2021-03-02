@@ -1,13 +1,23 @@
 <template>
   <div class="flex">
-    <p>JS界面</p>
+    <Blogtxt :cpagetype="pagetype"></Blogtxt>
   </div>
 </template>
 
 <script>
-export default {
-    name:"Js"
+import Blogtxt from '../components/blogtxt/Blogtxt'
+export default{
+  name:"Js",
+  data(){
+    return{
+      pagetype:"js"
+    }
+  },
+  components:{
+    Blogtxt
+  },
 }
+
 </script>
 
 <style>

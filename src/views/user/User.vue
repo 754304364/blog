@@ -1,9 +1,8 @@
 <template>
   <div class="container">
-    <div>
-      <router-link :to="this.$store.state.username+'/userdate'" class="userItem">个人资料</router-link>
-      <!-- <button class="publish-btn" @click="publishBtn">发表文章</button> -->
-      <router-link :to="this.$store.state.username+'/publish'"   class="userItem">发布博客</router-link>
+    <div class="user-item">
+      <router-link :to="'/'+this.$store.state.username+'/userdata'" class="userItem">个人资料</router-link>
+      <router-link :to="'/'+this.$store.state.username+'/publish'"   class="userItem">发布博客</router-link>
     </div>
       <router-view/>
   </div>
@@ -18,9 +17,7 @@ data(){
   }
 },
 methods:{
-  publishBtn(){
-    this.$router.push(this.$store.state.username+"/publish")
-  }
+  
 }
 }
 </script>
@@ -34,6 +31,9 @@ methods:{
   width: 100%;
   margin:0 auto;
   text-align: center;
+}
+.user-item{
+  padding: 20px;
 }
 .publish-btn{
   margin: 40px auto;

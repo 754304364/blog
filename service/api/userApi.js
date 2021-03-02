@@ -70,4 +70,34 @@ router.post('/addblog', (req, res) => {
 	});
 	
 });
+
+//获取博客
+// router.get('/selectjs',(res)=>{
+// 	const add_sql = $sql.user.selectjs;
+// 	conn.query(add_sql,function (err, result) {
+//         if(err){
+//           console.log('[SELECT ERROR] - ',err.message);
+//           return;
+//         }
+
+// 		res.send(result)
+//        console.log('--------------------------SELECT----------------------------');
+//        console.log(result);
+//        console.log('------------------------------------------------------------\n\n');  
+// });
+// });
+router.get('/selectjs',(req, res, next)=>{
+	const select = $sql.user.selectjs;
+	conn.query(select,(err,result) =>{
+		if(err){
+				console.log('[SELECT ERROR] - ',err.message);
+				return;
+			}
+			res.send(result)
+			console.log('--------------------------SELECT----------------------------');
+			console.log(result);
+			console.log('------------------------------------------------------------\n\n');  
+	})
+})
+
 module.exports = router;

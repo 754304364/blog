@@ -2,14 +2,20 @@
 <div class="pubish">
     <div>
         <input type="text" v-model="blogName" class="new-blog-name" placeholder="请输入文章名">
+        <div>
+            <input type="file" value="选择图片" accept="image/*" class="upload-img" @change="blogImg($event)">
+        </div>
     </div>
     <div>
-        <textarea v-model="blogTxt" class="new-blog-txt" placeholder="请输入博客内容"></textarea>
+        <div contenteditable="true" class="new-blog-txt"  id="text">
+            <p>
+                <br>
+            </p>
+        </div>
     </div>
     <div>
         <button @click="submitBlog">发布</button>
     </div>
-    
 </div>
 </template>
 
@@ -20,19 +26,36 @@ data(){
     return{
         blogName:null,
         blogTxt:null,
-        myDate:null
+        myDate:null,
+        blogText:null
     }
 },
 methods:{
+    // 添加图片
+    blogImg(event) {
+　　　　 var file = event.target.files;
+console.log(file);
+　　　　  var reader = new FileReader();//读取文件
+　　　　      reader.readAsDataURL(file[0]);
+　　　　      reader.onload = function() {
+                var img = document.createElement("img");
+                var br =document.createElement("br");
+                let text = document.getElementById("text")
+                text.appendChild(img).src= reader.result;
+            };
+        },
+    // 提交文章
     submitBlog(){
         this.myDate = new Date();
+        this.blogText = document.getElementById("text").innerHTML
+        console.log(this.blogText);
         this.$axios({
 						method:'post',
 						url: 'http://127.0.0.1:3000/api/user/addblog',
 						data: {
 							blogName: this.blogName,
-							blogTxt: this.blogTxt,
-                            blogTime:this.myDate.getFullYear()+"年"+this.myDate.getMonth()+"月"+this.myDate.getDate()+"日"+this.myDate.getHours()+"日"
+							blogTxt: this.blogText,
+                            blogTime:this.myDate.getFullYear()+"年"+this.myDate.getMonth()+"月"+this.myDate.getDate()+"日"+this.myDate.getHours()+"时"+this.myDate.getMinutes()+"分"+this.myDate.getSeconds()+"秒"
 						}
 					})
 					.then( res => {
@@ -58,17 +81,32 @@ methods:{
     height: 40px;
     width: 120px;
     color:#ff6700;
+    margin-top: 20px;
 }
 .new-blog-name{
     height: 30px;
     width: 150px;
     margin-bottom: 20px;
 }
+
 .new-blog-txt{
+    padding: 10px;
     font-size: 18px;
     width: 80%;
     height: 600px;
     outline: none;
-    resize : none;
+    margin: 0 auto;
+    overflow: auto;
+    background-color: #fff;
+    border-left: 5px solid #42b983;
+}
+.new-blog-txt p{
+    width: 100%;
+    text-align: left;
+}
+@media screen and (max-width:480px){
+    .new-blog-txt{
+    width: 90%;
+}
 }
 </style>
