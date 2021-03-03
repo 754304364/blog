@@ -11,7 +11,7 @@
 </template>
 
 <script>
-
+import {request}from '../axiosRequest/axiosRequest'
 export default {
     name:"Blogtxt",
     data(){
@@ -25,19 +25,19 @@ export default {
     },
     props:["cpagetype"],
      mounted(){
-        this.$axios({ 
-                method:'get',
-                url: 'http://127.0.0.1:3000/api/user/select'+this.cpagetype
-              })
-              .then( res => {
-                this.dataTxt = res.data
-                for(let i=0;i<this.dataTxt.length;i++){
-                  this.blogTxt.push(this.dataTxt[i].txt)
-                }
-              })
-              .catch( err => {
-                console.log(err);
-              })
+        request({ 
+            method:'get',
+            url: '/api/user/select'+this.cpagetype
+          })
+          .then( res => {
+            this.dataTxt = res.data
+            for(let i=0;i<this.dataTxt.length;i++){
+              this.blogTxt.push(this.dataTxt[i].txt)
+            }
+          })
+          .catch( err => {
+            console.log(err);
+          })
   },
   updated(){
     this.$nextTick(()=>{

@@ -18,8 +18,8 @@ export default{
     Header
   },
   created(){
-    this.$store.state.signing = window.localStorage.signing
-    this.$store.state.username = window.localStorage.username
+    // this.$store.state.signing = window.localStorage.signing
+    // this.$store.state.username = window.localStorage.username
   }
 }
 </script>

@@ -5,8 +5,9 @@ import store from './store'
 import axios from 'axios'
 
 Vue.config.productionTip = false
-Vue.prototype.$axios = axios;
-Vue.prototype.HOST = 'http://localhost:3000'
+axios.defaults.baseURL = 'http://localhost:3000'
+// Vue.prototype.$axios = axios;
+// Vue.prototype.HOST = 'http://localhost:3000'
 
 new Vue({
   router,
@@ -14,3 +15,4 @@ new Vue({
   axios,
   render: h => h(App)
 }).$mount('#app')
+

@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import {request} from '../components/axiosRequest/axiosRequest'
 export default {
 name:"Login",
 data(){
@@ -31,55 +32,53 @@ methods:{
         this.$router.push('/sign').catch(ery =>ery)
     },
     login(){
-            this.$axios({
-						method:'post',
-						url: 'http://127.0.0.1:3000/api/user/login',
-						data: {
-							username: this.userName,
-							password: this.userpwd
-						}
-					})
-					.then( res => {
-						switch(res.data){
-							case 0: 
-                                this.$store.state.username = this.userName;
-								this.$store.commit("updateSigning");
-                                this.$router.replace("/home")
-								break;
-							case -1:
-								this.loginMes ="用户名或密码错误！";
-								break;
-							case 1:
-								this.loginMes ="用户名或密码错误！";
-								break;
-						}
-					}).catch( err => {
-						console.log(err);
-					})
+        request({
+            method:'post',
+            url: '/api/user/login',
+            data: {
+                username: this.userName,
+                password: this.userpwd
+            }
+        }).then(res => {
+            switch(res.data){
+                case 0: 
+                    this.$store.state.username = this.userName;
+                    this.$store.commit("updateSigning");
+                    this.$router.replace("/home")
+                    break;
+                case -1:
+                    this.loginMes ="用户名或密码错误！";
+                    break;
+                case 1:
+                    this.loginMes ="用户名或密码错误！";
+                    break;
+                }
+            }).catch( err => {
+                console.log(err);
+            })
         },
     sign(){
-        this.$axios({
-						method:'post',
-						url: 'http://127.0.0.1:3000/api/user/add',
-						data: {
-							username: this.userName,
-							password: this.userpwd
-						}
-					})
-					.then( res => {
-						switch(res.data){
-							case 0:
-								this.loginMes ="注册成功";
-								this.login();
-								break;
-							case -1:
-                                this.loginMes ="用户名已存在";
-								break;
-						}
-					})
-					.catch( err => {
-						console.log(err);
-					})
+        request({
+            method:'post',
+            url: '/api/user/add',
+            data: {
+                username: this.userName,
+                password: this.userpwd
+            }
+        }).then( res => {
+            switch(res.data){
+            case 0:
+                this.loginMes ="注册成功";
+                this.login();
+                break;
+            case -1:
+                this.loginMes ="用户名已存在";
+                break;
+                }
+            })
+            .catch( err => {
+                console.log(err);
+            })
     }
         
 }
