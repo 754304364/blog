@@ -6,13 +6,17 @@ var sqlMap = {
         select: 'select * from user',
         // 添加与获取 js 博客
         addjs:'insert into blog_js (id,name,txt,time) values (0,?,?,?)',
-        selectjs:'select * from blog_js',
+        selectjs:'select * from blog_js where id>0 order by id desc',
+        selectjsid:'select * from blog_js',
          // 添加与获取 css 博客
          addcss:'insert into blog_css (id,name,txt,time) values (0,?,?,?)',
-         selectcss:'select * from blog_css',
+        // 按照 id 倒序查询
+        selectcss:'select * from blog_css where id>0 order by id desc',
+        selectcssid:'select * from blog_css',
          // 添加与获取 vue 博客
          addvue:'insert into blog_vue (id,name,txt,time) values (0,?,?,?)',
-         selectvue:'select * from blog_vue'
+         selectvue:'select * from blog_vue where id>0 order by id desc',
+        selectvueid:'select * from blog_vue'
     }
 }
 

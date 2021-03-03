@@ -2,8 +2,8 @@
   <div>
       <div class="header">
             <div class="top-item-show" @click="topItemShow()">
-                    <img class="top-item-show-img" :class="{opacity:opacity}" src="../../public/img/btnShow.svg" width="30px" height="30px">
-                    <img class="top-item-show-img" :class="{opacity:opacity2}" src="../../public/img/btnNone.svg" width="30px" height="30px">
+                    <img class="top-item-show-img" :class="{opacity:opacity}" src="../../../public/img/btnShow.svg" width="30px" height="30px">
+                    <img class="top-item-show-img" :class="{opacity:opacity2}" src="../../../public/img/btnNone.svg" width="30px" height="30px">
             </div>
             <div class="top-nav">
                 <ul>
@@ -15,12 +15,11 @@
             </div>
             <div class="head-portrait">
                 <div @click="loginOrsign">
-                    <img v-if="$store.state.signing" src="../../public/img/head-portrait.jpg" alt="">
+                    <img v-if="$store.state.signing" src="../../../public/img/head-portrait.jpg">
                     <div v-else class="signing" >
                       登录
                     </div>
                 </div>
-                <!-- <router-link :to=this.$store.state.username></router-link> -->
             </div>
       </div>
   </div>

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import {request}from '../axiosRequest/axiosRequest'
+import {reSelect}from '../axiosRequest/axiosRequest'
 export default {
     name:"Blogtxt",
     data(){
@@ -24,10 +24,10 @@ export default {
       }
     },
     props:["cpagetype"],
-     mounted(){
-        request({ 
+     created(){
+        reSelect({ 
             method:'get',
-            url: '/api/user/select'+this.cpagetype
+            url:'/select'+this.cpagetype
           })
           .then( res => {
             this.dataTxt = res.data
@@ -60,17 +60,23 @@ export default {
 
 <style>
 .txt-name{
+  display: flex;
+  justify-content:space-evenly;
+  flex-wrap:wrap;
   font-size: 20px;
   color: #ff6700;
   text-align: center;
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   cursor: pointer;
 }
 .textli{
   margin-top: 30px;
+  height: 300px;
+  width: 40%;
+  overflow: hidden;
   background-color: #fff;
-  border-left: 5px solid #42b983;
+  /* border-left: 5px solid #42b983; */
   border-radius: 10px;
 }
 .txtContainer{
@@ -86,6 +92,9 @@ export default {
 @media screen and (max-width:480px) {
 .txt-name{
   width: 90%;
+}
+.textli{
+  width: 270px;
 }
 }
 </style>

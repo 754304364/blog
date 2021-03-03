@@ -5,21 +5,17 @@
 </template>
 
 <script>
-import Blogtxt from '../components/blogtxt/Blogtxt'
+import Blogtxt from '../../components/blogtxt/Blogtxt'
 export default{
-  name:"Js",
+  name:"Vues",
   data(){
     return{
-      pagetype:"js"
+      pagetype:"vue"
     }
   },
   components:{
     Blogtxt
   },
 }
-
 </script>
 
-<style>
-
-</style>

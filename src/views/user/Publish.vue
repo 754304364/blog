@@ -2,7 +2,7 @@
 <div class="pubish">
     <div>
         <input type="text" v-model="blogName" class="new-blog-name" placeholder="请输入文章名">
-        <select v-model="selectType">
+        <select v-model="selectType" class="choice-type">
             <option value="js">js</option>
             <option value="css">css</option>
             <option value="vue">vue</option>
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import {request} from '../../components/axiosRequest/axiosRequest'
 export default {
 name:"Publish",
 data(){
@@ -54,27 +55,31 @@ methods:{
     submitBlog(){
         this.myDate = new Date();
         this.blogText = document.getElementById("text").innerHTML
-        this.$axios({
-						method:'post',
-						url: 'http://127.0.0.1:3000/api/user/add'+this.selectType,
-						data: {
-							blogName: this.blogName,
-							blogTxt: this.blogText,
-                            blogTime:this.myDate.getFullYear()+"年"+this.myDate.getMonth()+"月"+this.myDate.getDate()+"日"+this.myDate.getHours()+"时"+this.myDate.getMinutes()+"分"+this.myDate.getSeconds()+"秒"
-						}
-					})
-					.then( res => {
-						switch(res.data){
-							case 0: 
-                                console.log("提交成功");
-								break;
-							case -1:
-								console.log("提交失败");
-								break;
-						}
-					}).catch( err => {
-						console.log(err);
-					})
+        if(!this.selectType){
+            alert('请选择发布模块')
+        }else{
+            request({
+            method:'post',
+            url: 'http://127.0.0.1:3000/api/user/add'+this.selectType,
+            data: {
+                blogName: this.blogName,
+                blogTxt: this.blogText,
+                blogTime:this.myDate.getFullYear()+"年"+this.myDate.getMonth()+"月"+this.myDate.getDate()+"日"+this.myDate.getHours()+"时"+this.myDate.getMinutes()+"分"+this.myDate.getSeconds()+"秒"
+            }
+        }).then(res => {
+            switch(res.data){
+            case 0: 
+                console.log("提交成功");
+                break;
+            case -1:
+                console.log("提交失败");
+                break;
+            }
+        }).catch(err => {
+            console.log(err);
+        })
+        }
+        
     }
 }
 }
@@ -93,7 +98,11 @@ methods:{
     width: 150px;
     margin-bottom: 20px;
 }
-
+.choice-type{
+    margin-left: 20px;
+    height: 30px;
+    width: 50px;
+}
 .new-blog-txt{
     padding: 10px;
     font-size: 18px;

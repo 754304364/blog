@@ -3,16 +3,17 @@
       <div class="blog-child-name">
           {{childData[0]}}
       </div>
-      <div class="blog-child-txt">
-      </div>
       <div>
           {{childData[2]}}
       </div>
+      <div class="blog-child-txt">
+      </div>
+      
   </div>
 </template>
 
 <script>
-import {request} from '../axiosRequest/axiosRequest'
+import {reSelect} from '../axiosRequest/axiosRequest'
 export default {
 name:"blogchild",
 data(){
@@ -22,9 +23,9 @@ data(){
 },
 props:['cpagetype','cid'],
 created(){
-    request({ 
+    reSelect({ 
         method:'post',
-        url: '/api/user/select'+this.cpagetype,
+        url: '/select'+this.cpagetype,
         data:{
             id:this.cid
         }

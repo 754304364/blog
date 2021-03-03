@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Blogtxt from '../components/blogtxt/Blogtxt'
+import Blogtxt from '../../components/blogtxt/Blogtxt'
 export default{
   name:"Css",
   data(){

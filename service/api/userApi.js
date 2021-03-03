@@ -70,7 +70,7 @@ router.post('/addjs', (req, res) => {
 //读取博客 js  子分类
 router.post('/selectjsid', (req, res) => {
 	const params = req.body;
-	const add_sql = $sql.user.selectjs + " where id = " + params.id + "";
+	const add_sql = $sql.user.selectjsid + " where id = " + params.id + "";
 	conn.query(add_sql,(err, result) => {
 		console.log(result);
 		if (err) {
@@ -119,7 +119,7 @@ router.get('/selectcss',(req, res, next)=>{
 })
 router.post('/selectcssid', (req, res) => {
 	const params = req.body;
-	const add_sql = $sql.user.selectcss + " where id = " + params.id + "";
+	const add_sql = $sql.user.selectcssid + " where id = " + params.id + "";
 	conn.query(add_sql,(err, result) => {
 		console.log(result);
 		if (err) {
@@ -159,7 +159,7 @@ router.get('/selectvue',(req, res, next)=>{
 //读取博客 vue  子分类
 router.post('/selectvueid', (req, res) => {
 	const params = req.body;
-	const add_sql = $sql.user.selectvue + " where id = " + params.id + "";
+	const add_sql = $sql.user.selectvueid + " where id = " + params.id + "";
 	conn.query(add_sql,(err, result) => {
 		console.log(result);
 		if (err) {
