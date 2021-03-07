@@ -1,13 +1,13 @@
 import axios from 'axios'
 export function request(config){
     const instance = axios.create({
-        baseURL:'http://localhost:3000'
+        baseURL:'http://192.168.1.2:3000'
     })
     return instance(config)
 }
 export function reSelect(config){
     const instance = axios.create({
-        baseURL:'http://localhost:3000/api/user'
+        baseURL:'http://192.168.1.2:3000/api/user'
     })
     return instance(config)
 }

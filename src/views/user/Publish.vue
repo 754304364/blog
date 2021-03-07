@@ -25,11 +25,12 @@
 </template>
 
 <script>
-import {request} from '../../components/axiosRequest/axiosRequest'
+import {reSelect} from '../../components/axiosRequest/axiosRequest'
 export default {
 name:"Publish",
 data(){
     return{
+        imgSrc:null,
         selectType:null,
         blogName:null,
         blogTxt:null,
@@ -41,13 +42,13 @@ methods:{
     // 添加图片
     blogImg(event) {
 　　　　 var file = event.target.files;
-        console.log(file);
 　　　　 var reader = new FileReader();//读取文件
 　　　　 reader.readAsDataURL(file[0]);
 　　　　 reader.onload = function() {
             var img = document.createElement("img");
             var br =document.createElement("br");
             let text = document.getElementById("text")
+            this.imgSrc =reader.result
             text.appendChild(img).src= reader.result;
             };
         },
@@ -58,13 +59,15 @@ methods:{
         if(!this.selectType){
             alert('请选择发布模块')
         }else{
-            request({
+            reSelect({
             method:'post',
-            url: 'http://127.0.0.1:3000/api/user/add'+this.selectType,
+            url: '/add'+this.selectType,
             data: {
                 blogName: this.blogName,
                 blogTxt: this.blogText,
-                blogTime:this.myDate.getFullYear()+"年"+this.myDate.getMonth()+"月"+this.myDate.getDate()+"日"+this.myDate.getHours()+"时"+this.myDate.getMinutes()+"分"+this.myDate.getSeconds()+"秒"
+                blogImg: this.imgSrc,
+                blogType:this.selectType,
+                blogTime:this.myDate.getFullYear()+"年"+(this.myDate.getMonth()+1)+"月"+this.myDate.getDate()+"日"+this.myDate.getHours()+"时"+this.myDate.getMinutes()+"分"+this.myDate.getSeconds()+"秒"
             }
         }).then(res => {
             switch(res.data){
@@ -112,6 +115,7 @@ methods:{
     margin: 0 auto;
     overflow: auto;
     background-color: #fff;
+    text-align: left;
     border-left: 5px solid #42b983;
 }
 .new-blog-txt p{

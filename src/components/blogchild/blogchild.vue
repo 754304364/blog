@@ -1,10 +1,10 @@
 <template>
   <div class="blog-child">
-      <div class="blog-child-name">
+      <h1 class="blog-child-name">
           {{childData[0]}}
-      </div>
-      <div>
-          {{childData[2]}}
+      </h1>
+      <div class="blog-child-time">
+          {{childData[2]}}&nbsp;&nbsp;发布
       </div>
       <div class="blog-child-txt">
       </div>
@@ -30,7 +30,7 @@ created(){
             id:this.cid
         }
         }).then( res => {
-            this.childData.push(res.data[0].name,res.data[0].txt,res.data[0].time)
+            this.childData.push(res.data[0].title,res.data[0].txt,res.data[0].time)
         }).catch( err => {
             console.log(err);
         })
@@ -48,12 +48,20 @@ updated(){
 
 <style>
 .blog-child{
-    width: 100%;
+    width: 94%;
+    background-color: #fff;
+    border-radius: 20px;
+    padding:0 3% 20px 3%;
+    padding-top: 20px;
 }
 .blog-child-name{
     text-align: center;
 }
-.blog-child-txt{
+.blog-child-time{
+    margin: 20px 0;
 
+}
+.blog-child-txt{
+word-wrap:break-word;
 }
 </style>

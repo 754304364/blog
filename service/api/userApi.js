@@ -52,12 +52,23 @@ router.post('/add', (req, res) => {
 		}
 	});
 });
+router.get('/selectblog', (req, res) => {
+	const add_sql = $sql.user.selectblog;
+	conn.query(add_sql,(err, result) => {
+		console.log(result);
+		if (err) {
+			console.log(err);
+		} else{
+			res.send(result); //  表示成功
+		}
+	});
+});
 
 // 添加博客 js 分类
 router.post('/addjs', (req, res) => {
 	const params = req.body;
 	const add_sql = $sql.user.addjs;
-	conn.query(add_sql, [params.blogName, params.blogTxt,params.blogTime], (err, rst) => {
+	conn.query(add_sql, [params.blogName, params.blogTxt,params.blogTime,params.blogType], (err, rst) => {
 		if (err) {
 			console.log(err);
 		} else{
@@ -97,7 +108,7 @@ router.get('/selectjs',(req, res, next)=>{
 router.post('/addcss', (req, res) => {
 	const params = req.body;
 	const add_sql = $sql.user.addcss;
-	conn.query(add_sql, [params.blogName, params.blogTxt,params.blogTime], (err, rst) => {
+	conn.query(add_sql, [params.blogName, params.blogTxt,params.blogTime,params.blogType], (err, rst) => {
 		if (err) {
 			console.log(err);
 		} else{
@@ -135,7 +146,7 @@ router.post('/selectcssid', (req, res) => {
 router.post('/addvue', (req, res) => {
 	const params = req.body;
 	const add_sql = $sql.user.addvue;
-	conn.query(add_sql, [params.blogName, params.blogTxt,params.blogTime], (err, rst) => {
+	conn.query(add_sql, [params.blogName, params.blogTxt,params.blogTime,params.blogType], (err, rst) => {
 		if (err) {
 			console.log(err);
 		} else{

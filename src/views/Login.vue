@@ -10,14 +10,12 @@
           <button class="login-sign-login" @click="login">登录</button>
           <button class="login-sign-sign" @click="sign">注册</button>
           <div class="loginMes"><span>{{loginMes}}</span></div>
-      </div>
-      
-      
+      </div> 
   </div>
 </template>
 
 <script>
-import {request} from '../components/axiosRequest/axiosRequest'
+import {reSelect} from '../components/axiosRequest/axiosRequest'
 export default {
 name:"Login",
 data(){
@@ -32,9 +30,12 @@ methods:{
         this.$router.push('/sign').catch(ery =>ery)
     },
     login(){
-        request({
+        if(!this.userName || !this.userpwd){
+            this.loginMes = '请输入用户名或密码'
+        }else{
+            reSelect({
             method:'post',
-            url: '/api/user/login',
+            url: '/login',
             data: {
                 username: this.userName,
                 password: this.userpwd
@@ -56,9 +57,13 @@ methods:{
             }).catch( err => {
                 console.log(err);
             })
+        }
         },
     sign(){
-        request({
+        if(!this.userName || !this.userpwd){
+            this.loginMes = '请输入用户名或密码'
+        }else{
+            request({
             method:'post',
             url: '/api/user/add',
             data: {
@@ -79,9 +84,10 @@ methods:{
             .catch( err => {
                 console.log(err);
             })
-    }
-        
+    }     
 }
+        }
+        
 }
 </script>
 

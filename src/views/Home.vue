@@ -1,12 +1,20 @@
 <template>
+<div>
+  <homes></homes>
   <div class="flex">
   </div>
+</div>
+  
 </template>
 
 <script>
+import Homes from '../components/home/home'
 import {reSelect} from '../components/axiosRequest/axiosRequest'
 export default {
   name: 'Home',
+  components:{
+    Homes
+  },
   data(){
     return{
       divFlex:null,
@@ -14,44 +22,38 @@ export default {
       divTxt:[],
       divTitle:[],
       title:[],
-      divType:[],
-      divTypePush:['js','css','vue','js','css','vue']
     }
   },
   created(){
-    reSelect.all([reSelect({
-      url: '/selectjs',
-    }),reSelect({
-      url: '/selectcss',
-    }),reSelect({
-      url: '/selectvue',
-    })]).then(reSelect.spread((res1,res2,res3) =>{
-      this.divFlex = document.getElementsByClassName('flex')[0]
-      for(let k = 0;k < 2; k++){
-          this.divType.push(res1.data[k],res2.data[k],res3.data[k])
-        }
-      for(let i =0;i<6;i++){
-        //创建展示博客的 div
-        this.div[i] = document.createElement('div')
-        this.div[i].className = 'big'
-        // 创建展示 博客标题的 div
-        this.divTitle[i] = document.createElement('div')
-        this.divTitle[i].className = 'home-title'
-        this.divTitle[i].innerHTML = this.divType[i].name
-        //创建展示 博客 内容的div
-        this.divTxt[i] = document.createElement('div')
-        // this.divTxt[i].className = 'home-title'
-        this.divTxt[i].innerHTML = this.divType[i].txt
-        //添加进去
-        this.div[i].appendChild(this.divTitle[i])
-        this.div[i].appendChild(this.divTxt[i])
-        this.divFlex.appendChild(this.div[i])
-        this.div[i].onclick=()=>{
-          this.$router.push({path:this.divTypePush[i]+"/"+this.divType[i].id,
-                              query:{pageid:this.divType[i].id} })
-        }
-      }
-    }))
+    reSelect({ 
+            method:'get',
+            url:'/selectblog'
+          }).then( res => {
+            this.divFlex = document.getElementsByClassName('flex')[0]
+            this.dataTxt = res.data
+            for(let i =0;i<6;i++){
+              //创建展示博客的 div
+                  this.div[i] = document.createElement('div')
+                  this.div[i].className = 'big'
+                  // 创建展示 博客标题的 div
+                  this.divTitle[i] = document.createElement('div')
+                  this.divTitle[i].className = 'home-title'
+                  this.divTitle[i].innerHTML = this.dataTxt[i].title
+                  //创建展示 博客 内容的div
+                  this.divTxt[i] = document.createElement('div')
+                  this.divTxt[i].innerHTML = this.dataTxt[i].txt
+                  //添加进去
+                  this.div[i].appendChild(this.divTitle[i])
+                  this.div[i].appendChild(this.divTxt[i])
+                  this.divFlex.appendChild(this.div[i])
+                  this.div[i].onclick= ()=> {
+                    this.$router.push({path:this.dataTxt[i].type+"/"+this.dataTxt[i].id,
+                                       query:{pageid:this.dataTxt[i].id} })
+                  }
+            }
+          }).catch( err => {
+            console.log(err);
+          })
   }
 }
 
@@ -59,11 +61,14 @@ export default {
 
 <style>
 .big{
-  width: 40%;
-  height: 200px;
-  margin-left: 5%;
-  border: .5px solid #000;
-  border-radius: 25px;
+  width: 34%;
+  padding:0 3%;
+  height: 300px;
+  /* margin-left: 5%; */
+  cursor: pointer;
+  border: .5px solid #fff;
+  background-color: #fff;
+  border-radius: 20px;
   margin-top: 20px;
   overflow: hidden;
 }
@@ -74,16 +79,15 @@ export default {
 .home-title{
   width: 100%;
   text-align: center;
-  height: 30px;
-  line-height: 30px;
+  height: 50px;
+  line-height: 50px;
+  color: #ff6700;
 }
 @media screen and (max-width:480px){
-  .flex{
-    margin: 0 5%;
-  }
   .big{
-    width: 80%;
-    margin-top: 30px;
+    width: 90%;
+    margin: 0 5%;
+    margin-top: 20px;
   }
 }
 

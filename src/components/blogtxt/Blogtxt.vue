@@ -1,8 +1,8 @@
 <template>
   <div style="width:100%">
       <div class="txt-name" >
-      <div v-for="item in dataTxt" class="textli">
-        <h3>{{item.name}}</h3>
+      <div v-for="(item,index) in dataTxt" class="textli" :key="index">
+        <h3>{{item.title}}</h3>
         <div class="txtContainer">
         </div>
      </div>
@@ -68,7 +68,7 @@ export default {
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  cursor: pointer;
+  
 }
 .textli{
   margin-top: 30px;
@@ -78,23 +78,26 @@ export default {
   background-color: #fff;
   /* border-left: 5px solid #42b983; */
   border-radius: 10px;
+  cursor: pointer;
 }
 .txtContainer{
-  width: 100%;
+  width: 90%;
   text-align: left;
   overflow: hidden;
   min-width: 200px;
   min-height: 200px;
   color: #000;
   font-size: 16px;
-  background-color: rgba(66, 185, 131, .1);
+  padding: 0 5%;
+  /* background-color: rgba(66, 185, 131, .1); */
 }
 @media screen and (max-width:480px) {
 .txt-name{
   width: 90%;
 }
 .textli{
-  width: 270px;
+  height: 200px;
+  width: 90%;
 }
 }
 </style>

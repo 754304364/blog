@@ -2,8 +2,8 @@
   <div>
       <div class="header">
             <div class="top-item-show" @click="topItemShow()">
-                    <img class="top-item-show-img" :class="{opacity:opacity}" src="../../../public/img/btnShow.svg" width="30px" height="30px">
-                    <img class="top-item-show-img" :class="{opacity:opacity2}" src="../../../public/img/btnNone.svg" width="30px" height="30px">
+                    <img class="top-item-show-img" :class="{opacity:opacity}" src="../../public/img/btnShow.svg" width="30px" height="30px">
+                    <img class="top-item-show-img" :class="{opacity:opacity2}" src="../../public/img/btnNone.svg" width="30px" height="30px">
             </div>
             <div class="top-nav">
                 <ul>
@@ -15,11 +15,12 @@
             </div>
             <div class="head-portrait">
                 <div @click="loginOrsign">
-                    <img v-if="$store.state.signing" src="../../../public/img/head-portrait.jpg">
+                    <img v-if="$store.state.signing" src="../../public/img/head-portrait.jpg" alt="">
                     <div v-else class="signing" >
                       登录
                     </div>
                 </div>
+                <!-- <router-link :to=this.$store.state.username></router-link> -->
             </div>
       </div>
   </div>
@@ -52,6 +53,7 @@ export default {
         }
       },
       loginOrsign(){
+        console.log(this.$store.state.signing);
         if(this.$store.state.signing == false){
           this.$router.push('/login').catch(ery =>ery)
         }else{
@@ -116,17 +118,10 @@ export default {
   cursor: pointer;
 }
 @media screen and (max-width:480px){
-  .header{
-    position: fixed;
-    top:0;
-    z-index: 10;
-  }
   .top-item-show{
    display: block;
 }
   .top-nav{
-    z-index: 10;
-    position: fixed;
     width: 50%;
     height: 100%;
     left: -50%;

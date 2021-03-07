@@ -6,10 +6,13 @@ const app = express();
 const userApi = require('./api/userApi.js');
 
 // 解析 application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 // 解析 application/json
-app.use(bodyParser.json());
-
+// app.use(bodyParser.json({limit : '210000kb'}));
+app.use(bodyParser.json({ 
+	limit:'10mb'}));
+ app.use(bodyParser.urlencoded({
+	 limit:'10mb', extended: true }));
 app.use(cors());
 
 //设置跨域请求
