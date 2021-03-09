@@ -2,6 +2,7 @@ import axios from 'axios'
 export function request(config){
     const instance = axios.create({
         baseURL:'http://192.168.1.2:3000'
+        // baseURL:'http://101.132.235.218:3000'
     })
     return instance(config)
 }

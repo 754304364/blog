@@ -1,7 +1,5 @@
 <template>
-  <div class="flex">
       <blogchild :cpagetype="pagetype" :cid='pageid'></blogchild>
-  </div>
 </template>
 
 <script>

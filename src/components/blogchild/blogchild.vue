@@ -46,20 +46,19 @@ updated(){
 }
 </script>
 
-<style>
+<style scoped>
 .blog-child{
-    width: 94%;
-    background-color: #fff;
+    box-sizing: border-box;
+    padding: 20px;
     border-radius: 20px;
-    padding:0 3% 20px 3%;
-    padding-top: 20px;
+    background-color: #fff;
 }
 .blog-child-name{
     text-align: center;
 }
 .blog-child-time{
     margin: 20px 0;
-
+    color: #ff6700;
 }
 .blog-child-txt{
 word-wrap:break-word;

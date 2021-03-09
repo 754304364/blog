@@ -3,7 +3,15 @@
     padding: 0;
   }
 
-
+  html,body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden!important;
+  }
+  html{
+    background: url(../../../public/img/home-lunbo3.jpg)center  no-repeat fixed;
+    background-size: cover;
+  }
   a{
     color: #000;
     text-decoration: none;
@@ -12,9 +20,9 @@
   li{
     list-style: none;
   }
-  body{
+  /* body{
         background-color: #f5f6f7;
-  }
+  } */
   input{
     outline: none;
   }
@@ -24,15 +32,58 @@
   }
 
   .flex{
-    padding-top: 20px;
+    padding-top: 64px;
     min-height: 100%;
     display: flex;
-    margin: 0 10%;
+    width: 1300px;
+    margin: 0 auto;
     flex-wrap:wrap;
-    justify-content:space-around;
+    justify-content:flex-start;
   }
-  @media screen and (max-width:480px){
-    .flex{
-      margin: 0;
+  #app{
+    transition: all .5s;
+    min-height: 100%;
+  }
+  @media screen and (max-width:768px){
+    #app{
+      width: 100%;
     }
-  }
+    .flex{
+        width: 100%;
+    }
+    }
+    
+    @media (min-width: 768px){
+    #app{
+      width: 750px;
+    }
+    .flex{
+        width: 750px;
+    }
+    }
+    @media (min-width: 992px){
+      #app{
+        width: 970px;
+      }
+      .flex{
+          width: 970px;
+      }
+    }
+    
+    @media (min-width: 1200px){
+      #app{
+        width: 1170px;
+      }
+      .flex {
+          width: 1170px;
+      }
+    }
+    
+    @media (min-width: 1800px){
+      #app{
+        width: 1300px;
+      }
+      .flex {
+          width: 1300px;
+      }
+    }

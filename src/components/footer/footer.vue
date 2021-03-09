@@ -12,11 +12,12 @@ name:'foot'
 
 <style scoped>
 .foot{
-    width: 100%;
-    height: 100px;
-    margin-top: 30px;
-    bottom: 0;
-    background-color:lightslategray;
+  position: fixed;
+  width: 100%;
+  height: 100px;
+  margin-top: 30px;
+  bottom: 0px;
+  background-color:lightslategray;
 }
-</style>>
+</style>
 

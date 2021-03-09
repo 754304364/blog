@@ -1,8 +1,5 @@
 <template>
-  <div class="flex">
-    <Blogtxt :cpagetype="pagetype"></Blogtxt>
-  </div>
-  
+    <Blogtxt :cpagetype="pagetype"></Blogtxt> 
 </template>
 
 <script>

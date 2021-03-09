@@ -1,0 +1,135 @@
+.router-link-active{
+    color: #ff6700;
+  }
+  .header{
+    position: fixed;
+    top:0;
+    z-index: 10;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0px 1px 1px rgba(1, 1, 1, .1);
+  }
+  .header:after{
+    display:table;
+    content: "";
+    clear: both;
+  }
+  .top-item-show{
+    display: none;
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    top: 20px;
+    left:20px;
+    transition: all .5s;
+  }
+  .top-item-show-img{
+    position: absolute;
+    transition: all .5s;
+  }
+  .opacity{
+    opacity: 0;
+  }
+  .top-nav{
+    padding-top: 10px;
+    position: absolute;
+    height: 40px;
+    text-align: center;
+    margin-left: 30%;
+  }
+  
+  .top-nav ul::after{
+    display: table;
+    content: "";
+    clear: both;
+  }
+  .top-item{
+    display: block;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 100px;
+    cursor: pointer;
+  }
+  @media screen and (max-width:768px){
+    .header{
+      /* position: fixed; */
+      top:0;
+      z-index: 10;
+    }
+    .top-item-show{
+     display: block;
+  }
+    .top-nav{
+      z-index: 10;
+      position: fixed;
+      width: 50%;
+      height: 100%;
+      margin-left: -50%;
+      background: #f8f9fa;
+      padding-top: 10%;
+      /* margin-left: 0; */
+      transition: all .5s;
+    }
+    .top-item{
+      width: 100%;
+    }
+  }
+  
+  .head-portrait{
+    position: relative;
+    top: 0px;
+    float: right;
+    right: 0;
+    margin-right: 5%;
+    cursor: pointer;
+  }
+  
+  .head-portrait img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  .signing{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #f6f6f6;
+    text-align: center;
+    line-height: 60px;
+    color: blue;
+  }
+  .signing:hover{
+    color: red;
+  }
+  
+  
+   @media screen and (max-width:768px){
+  .header{
+      width: 100%;
+  }
+  }
+  
+  @media (min-width: 768px){
+  .header{
+      width: 750px;
+  }
+  }
+  @media (min-width: 992px){
+  .header {
+      width: 970px;
+  }
+  }
+  
+  @media (min-width: 1200px){
+  .header {
+      width: 1170px;
+  }
+  }
+  
+  @media (min-width: 1800px){
+  .header {
+      width: 1300px;
+  }
+  }

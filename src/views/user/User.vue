@@ -24,8 +24,6 @@ data(){
   margin-left: 20px;
 }
 .container{
-  width: 100%;
-  margin:0 auto;
   text-align: center;
 }
 .user-item{

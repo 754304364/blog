@@ -1,5 +1,6 @@
 <template>
-  <div style="width:100%">
+  <!-- <div style="width:100%"> -->
+    <div>
       <div class="txt-name" >
       <div v-for="(item,index) in dataTxt" class="textli" :key="index">
         <h3>{{item.title}}</h3>
@@ -76,6 +77,7 @@ export default {
   width: 40%;
   overflow: hidden;
   background-color: #fff;
+  padding: 5px 0;
   /* border-left: 5px solid #42b983; */
   border-radius: 10px;
   cursor: pointer;
