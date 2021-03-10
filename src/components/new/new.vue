@@ -12,7 +12,6 @@
              <li class="home-right-li">文章数目<span>{{arrLength}}</span></li>
              <li class="home-right-li">评论数目<span>xx条</span></li>
              <li class="home-right-li">感谢陪伴<span>xx天</span></li>
-             <!-- <li class="home-right-li">加载耗时<span>0ms</span></li> -->
              <li class="home-right-li">加载耗时<span>{{this.$store.state.loadingTime}}ms</span></li>
           </ul>
       </div>
@@ -25,17 +24,15 @@ export default {
 name:'news',
 data(){
     return{
-        arr:null,
-        arrLength:0
+        arrLength:0,
     }
 },
 created(){
     reSelect({ 
         method:'get',
-        url:'/selectblog'
+        url:'/blogLength'
     }).then( res => {
-        this.arr = res.data
-        this.arrLength = this.arr.length
+        this.arrLength = res.data.length
     }).catch( err => {
         console.log(err);
     })

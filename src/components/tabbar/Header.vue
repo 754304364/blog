@@ -59,7 +59,7 @@ export default {
         if(this.$store.state.signing == false){
           this.$router.push('/login').catch(ery =>ery)
         }else{
-          this.$router.push('/'+this.$store.state.username).catch(ery =>ery)
+          this.$router.push('/user/'+this.$store.state.username).catch(ery =>ery)
         }
          
       }

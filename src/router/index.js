@@ -5,8 +5,6 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const Home = () =>import('../views/Home')
-// const Home = () =>import('../components/HelloWorld')
-// const Js = () =>import('../views/js/Js')
 const Js = () =>import('../views/js/Js')
 const Jschild = () =>import('../views/js/jsChild')
 const Vuechild =()=>import('../views/vue/vuechild')
@@ -19,11 +17,19 @@ const Publish = ()=>import('../views/user/Publish')
 const Userdata = ()=>import('../views/user/Userdata')
 const routes = [
   {
+    path: '*',
+    redirect:'/home'
+  },
+  {
     path: '',
     redirect:'/home'
   },
   {
     path:"/home",
+    component:Home
+  },
+  {
+    path:"/home/:pagenum",
     component:Home
   },
   {
@@ -55,12 +61,12 @@ const routes = [
     component:Login
   },
   {
-    path:"/:username",
+    path:"/user/:username",
     component:User,
     children:[
       {
         path: "",
-        redirect:'/:username/userdata'
+        redirect:'/user/:username/userdata'
       },
        {
            path:'publish',

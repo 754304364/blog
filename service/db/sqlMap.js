@@ -20,7 +20,10 @@ var sqlMap = {
          // 添加与获取 vue 博客
          addvue:'insert into blog (id,title,txt,time,type) values (0,?,?,?,?)',
          selectvue:"select * from blog where type='vue' and id>0 order by id desc",
-        selectvueid:'select * from blog'
+         selectvueid:'select * from blog',
+
+         blogLength:'select id from blog',
+         blogpage:'select * from blog'
     }
 }
 

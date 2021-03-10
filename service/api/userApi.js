@@ -63,7 +63,31 @@ router.get('/selectblog', (req, res) => {
 		}
 	});
 });
-
+//获取有多少条博客及其 id
+router.get('/blogLength', (req, res) => {
+	const add_sql = $sql.user.blogLength;
+	conn.query(add_sql,(err, result) => {
+		console.log(result);
+		if (err) {
+			console.log(err);
+		} else{
+			res.send(result); 
+		}
+	});
+});
+//获取首页博客页码分类
+router.post('/blogpage', (req, res) => {
+	const params = req.body;
+	const add_sql = $sql.user.blogpage + " limit " + params.pagenum +"," + "6" ;
+	conn.query(add_sql,(err, result) => {
+		console.log(result);
+		if (err) {
+			console.log(err);
+		} else{
+			res.send(result); 
+		}
+	});
+});
 // 添加博客 js 分类
 router.post('/addjs', (req, res) => {
 	const params = req.body;

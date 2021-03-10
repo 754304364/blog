@@ -1,8 +1,8 @@
 <template>
   <div class="container">
     <div class="user-item">
-      <router-link :to="'/'+this.$store.state.username+'/userdata'" class="userItem">个人资料</router-link>
-      <router-link :to="'/'+this.$store.state.username+'/publish'"   class="userItem">发布博客</router-link>
+      <router-link :to="'/user/'+this.$store.state.username+'/userdata'" class="userItem">个人资料</router-link>
+      <router-link :to="'/user/'+this.$store.state.username+'/publish'"   class="userItem">发布博客</router-link>
     </div>
       <router-view/>
   </div>

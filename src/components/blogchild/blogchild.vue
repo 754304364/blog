@@ -1,5 +1,6 @@
 <template>
-  <div class="blog-child">
+<div>
+    <div class="blog-child">
       <h1 class="blog-child-name">
           {{childData[0]}}
       </h1>
@@ -8,8 +9,9 @@
       </div>
       <div class="blog-child-txt">
       </div>
-      
   </div>
+</div>
+  
 </template>
 
 <script>

@@ -2,18 +2,18 @@
   <div id="app">
     <Header/>
     <news></news>
+    <!-- <foot></foot> -->
   </div>
 </template>
 
 <style>
 @import url(./assets/css/all.css);
-#app{
-  margin: 0 auto;
-}
+
 </style>
 
 <script>
 import news from './components/new/new'
+import foot from './components/footer/footer'
 import Header from './components/tabbar/Header'
 export default{
   data(){
@@ -23,7 +23,8 @@ export default{
   },
   components:{
     Header,
-    news
+    news,
+    foot
   },
   beforeCreate(){
     window.onload = ()=>{

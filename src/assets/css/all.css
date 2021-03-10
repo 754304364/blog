@@ -43,7 +43,22 @@
   #app{
     transition: all .5s;
     min-height: 100%;
+    position: relative;
+    margin: 0 auto;
+    /* overflow: hidden; */
   }
+  #app:before{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    display: block;
+    width: inherit;
+    background-color: rgb(249,249,249);;
+    border: inherit;
+    content: "";
+  }
+
   @media screen and (max-width:768px){
     #app{
       width: 100%;
