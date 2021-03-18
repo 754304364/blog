@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-
+import store from '../store/index'
 
 Vue.use(VueRouter)
 
@@ -63,6 +63,14 @@ const routes = [
   {
     path:"/user/:username",
     component:User,
+    beforeEnter:(to,from,next)=>{
+      let isLogin = store.state.isLogin
+      if(isLogin){
+         next();
+      }else{
+        router.push('/login')
+      }
+    },
     children:[
       {
         path: "",
@@ -86,5 +94,4 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
-
 export default router

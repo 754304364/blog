@@ -6,7 +6,7 @@
 }
 .center-blog{
     width: 95%;
-    height: 300px;
+    height: 310px;
     padding: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -17,15 +17,78 @@
     cursor: pointer;
 }
 .blog-title{
-    height: 30px;
-    line-height: 30px;
+    border-bottom: 1px solid rgba(222,229,231,.45);
+    width: 95%;
+    margin: 0 auto;
+    height: 29px;
+    line-height: 29px;
     text-align: center;
     color: #ff6700;
 }
 .blog-text{
-    height: 270px;
+    height: 250px;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.blog-information{
+    border-top: 1px solid rgba(222,229,231,.45);
+    width: 95%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding-top: 5px;
+    padding-bottom: 4px;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+}
+.blog-information ul li{
+    float: left;
+}
+.blog-time{
+    height: 20px;
+    line-height: 20px;
+}
+.blog-time img{
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    margin-right: 3px;
+}
+.blog-dz{
+    height: 20px;
+    line-height: 20px;
+    margin-left: 10px;
+}
+.blog-dz img{
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    margin-right: 3px;
+}
+.blog-dz img:hover{
+    content: url(../../../public/img/dzhover.png);
+}
+.blog-view{
+    height: 20px;
+    line-height: 20px;
+    margin-left: 10px;
+}
+.blog-view img{
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    margin-right: 3px;
+}
+.blog-comment{
+    height: 20px;
+    line-height: 20px;
+    margin-left: 10px;
+}
+.blog-comment img{
+    display: inline-block;
+    height: 14px;
+    width: 14px;
+    margin-right: 3px;
 }
 .home-nav{
     width: 100%;

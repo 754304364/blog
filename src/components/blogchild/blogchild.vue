@@ -9,6 +9,7 @@
       </div>
       <div class="blog-child-txt">
       </div>
+      <comments></comments>
   </div>
 </div>
   
@@ -16,12 +17,16 @@
 
 <script>
 import {reSelect} from '../axiosRequest/axiosRequest'
+import comments from '../comments/comments'
 export default {
 name:"blogchild",
 data(){
     return{
         childData:[]
     }
+},
+components:{
+    comments
 },
 props:['cpagetype','cid'],
 created(){
@@ -33,6 +38,17 @@ created(){
         }
         }).then( res => {
             this.childData.push(res.data[0].title,res.data[0].txt,res.data[0].time)
+        }).catch( err => {
+            console.log(err);
+        })
+        reSelect({ 
+            method:'post',
+            url: '/addviews',
+            data:{
+                id:this.cid
+            }
+        }).then( res => {
+            
         }).catch( err => {
             console.log(err);
         })

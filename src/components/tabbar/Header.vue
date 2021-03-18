@@ -15,7 +15,7 @@
             </div>
             <div class="head-portrait">
                 <div @click="loginOrsign">
-                    <img v-if="$store.state.signing" src="../../../public/img/head-portrait.jpg">
+                    <img v-if="$store.state.isLogin" src="../../../public/img/head-portrait.jpg">
                     <div v-else class="signing" >
                       登录
                     </div>
@@ -39,24 +39,18 @@ export default {
       topItemShow(){
         if(this.topNavDisplay){
           document.getElementById('app').style.transform = 'translate(50%,0px)'
-          // document.getElementsByClassName("top-nav")[0].style.marginLeft = 0 
-          // document.getElementsByClassName("home-left")[0].style.left = 0
-          // document.getElementsByClassName("top-item-show")[0].style.left='50%'
           this.opacity = !this.opacity
           this.opacity2 = !this.opacity2
           this.topNavDisplay = !this.topNavDisplay
         }else{
           document.getElementById('app').style.transform = 'translate(0px,0px)'
-          // document.getElementsByClassName("top-nav")[0].style.marginLeft= "-50%"
-          // document.getElementsByClassName("home-left")[0].style.left = '-50%'
-          // document.getElementsByClassName("top-item-show")[0].style.left= "20px"
           this.opacity = !this.opacity
           this.opacity2 = !this.opacity2
           this.topNavDisplay = !this.topNavDisplay
         }
       },
       loginOrsign(){
-        if(this.$store.state.signing == false){
+        if(this.$store.state.isLogin == false){
           this.$router.push('/login').catch(ery =>ery)
         }else{
           this.$router.push('/user/'+this.$store.state.username).catch(ery =>ery)

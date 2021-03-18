@@ -63,9 +63,9 @@ methods:{
         if(!this.userName || !this.userpwd){
             this.loginMes = '请输入用户名或密码'
         }else{
-            request({
+            reSelect({
             method:'post',
-            url: '/api/user/add',
+            url: '/add',
             data: {
                 username: this.userName,
                 password: this.userpwd

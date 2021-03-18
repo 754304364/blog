@@ -34,11 +34,7 @@ export default{
     this.$nextTick(()=>{
       this.$store.commit('loadingTime',this.time)
     })
-  },
-  created(){
-    
-  },
-  
+  }
 }
  
 </script>

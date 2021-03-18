@@ -1,10 +1,9 @@
 <template>
-  <!-- <div style="width:100%"> -->
     <div>
       <div class="txt-name" >
       <div v-for="(item,index) in dataTxt" class="textli" :key="index">
         <h3>{{item.title}}</h3>
-        <div class="txtContainer">
+        <div class="txtContainer" v-html="dataTxt[index].txt">
         </div>
      </div>
     </div>
@@ -32,9 +31,6 @@ export default {
           })
           .then( res => {
             this.dataTxt = res.data
-            for(let i=0;i<this.dataTxt.length;i++){
-              this.blogTxt.push(this.dataTxt[i].txt)
-            }
           })
           .catch( err => {
             console.log(err);
@@ -49,9 +45,8 @@ export default {
         this.container[i].appendChild(this.div[i])
         // 给每个博客分类的首页展示的 博客 添加点击跳转
         this.container[i].onclick=()=>{
-          // this.$router.push(this.cpagetype+"/"+this.dataTxt[i].id)
-          this.$router.push({path:this.cpagetype+"/"+this.dataTxt[i].id,
-                              query:{pageid:this.dataTxt[i].id} })
+          this.$router.push({path:this.cpagetype+"/blog",
+                              query:{pageid:this.dataTxt[i].id}})
         }
       }
         })
@@ -78,20 +73,18 @@ export default {
   overflow: hidden;
   background-color: #fff;
   padding: 5px 0;
-  /* border-left: 5px solid #42b983; */
   border-radius: 10px;
   cursor: pointer;
+  border: 1px solid #dedede;
 }
 .txtContainer{
-  width: 90%;
+  width: 100%;
   text-align: left;
   overflow: hidden;
   min-width: 200px;
   min-height: 200px;
   color: #000;
   font-size: 16px;
-  padding: 0 5%;
-  /* background-color: rgba(66, 185, 131, .1); */
 }
 @media screen and (max-width:480px) {
 .txt-name{

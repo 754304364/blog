@@ -29,8 +29,9 @@
 }
 
 .home-center{
-    /* width: 860px; */
-    background-color: rgb(241,243,244);
+    min-height: 600px;
+    /* background-color: rgb(241,243,244); */
+    background-color: #fff;
 }
 
 .home-right{
@@ -70,14 +71,11 @@
     width: 100%;
 }
 .home-left{
-    /* display: none; */
     transition: all .5s;
     margin-top: 150px;
-    position: absolute;
     width: 50%;
     left: -50%;
     height: calc(100% - 214px);
-    /* height: auto; */
     background-color: rgb(249,249,249);
 }
 .home-center{
